@@ -5,7 +5,7 @@ import random
 class Dataset:
     """Charge les données patients et les sépare en entraînement / test."""
 
-    FEATURES = ["temperature", "fievre", "toux", "fatigue"]
+    FEATURES = ["ecart_temperature", "fievre", "toux", "fatigue"]
     TARGET = "infecte"
 
     def __init__(self, path):
