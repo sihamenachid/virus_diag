@@ -2,6 +2,7 @@ from core.dataset import Dataset
 from core.optimizer import GradientDescent
 from core.logistic_regression import LogisticRegression
 from core.neural_network import NeuralNetwork
+from core.svm import SVM
 from pipeline.trainer import Trainer
 from pipeline.evaluator import Evaluator
 from app.interface_clinique import ClinicalPredictor
@@ -19,6 +20,7 @@ patient = [2.2, 1, 1, 0]
 models = {
     "LogisticRegression": (LogisticRegression(n_features=4), GradientDescent(0.5), 200),
     "NeuralNetwork": (NeuralNetwork(n_features=4, n_hidden=4), GradientDescent(0.05), 100),
+    "SVM": (SVM(n_features=4), GradientDescent(0.1), 200),
 }
 
 for name, (model, optimizer, epochs) in models.items():
