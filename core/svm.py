@@ -5,7 +5,8 @@ from core.logistic_regression import sigmoid
 class SVM(Model):
     """SVM linéaire (Support Vector Machine), entraîné par descente de gradient (hérite de Model)."""
 
-    def __init__(self, n_features):
+    def __init__(self, n_features, regularization=0.01):
+        self.__regularization = regularization   # force de la régularisation
         self.__weights = [0.0] * n_features   # encapsulation : paramètres protégés
         self.__bias = 0.0
 
@@ -18,7 +19,7 @@ class SVM(Model):
 
     def train_step(self, X, y, optimizer):
         n = len(X)
-        grad_w = [0.01 * w for w in self.__weights]   # régularisation
+        grad_w = [self.__regularization * w for w in self.__weights]
         grad_b = 0.0
         loss = 0.0
         for x, target in zip(X, y):
