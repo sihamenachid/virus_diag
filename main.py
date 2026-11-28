@@ -10,7 +10,7 @@ from app.interface_clinique import ClinicalPredictor
 # 1. Données
 dataset = Dataset("data/patient_data.csv")
 X_train, X_test, y_train, y_test = dataset.split(test_ratio=0.2)
-print(f"Patients : {len(dataset)} | entraînement : {len(X_train)} | test : {len(X_test)}")
+print(f"Dataset chargé avec succès : {len(dataset)} patients (train={len(X_train)}, test={len(X_test)})")
 
 # Nouveau patient : [ecart_temperature (°C au-dessus de 37), fievre, toux, fatigue]
 # ex : 39.2 °C -> 2.2
